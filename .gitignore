@@ -1,0 +1,12 @@
+# Project exclude paths
+/.gradle/
+/build/
+/omni/build/
+/omni/out/
+/omni/out/production/classes/
+/omni-renderer/build/
+/omni-renderer/out/
+/omni-renderer/out/production/classes/
+/out/
+/out/production/classes/
+/out/test/classes/
