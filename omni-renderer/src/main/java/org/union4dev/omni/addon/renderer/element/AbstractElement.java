@@ -1,6 +1,8 @@
 package org.union4dev.omni.addon.renderer.element;
 
 import lombok.ToString;
+import org.lwjgl.input.Mouse;
+import org.union4dev.omni.elements.wrapper.IScaledResolution;
 
 import java.util.Objects;
 
@@ -16,10 +18,12 @@ public abstract class AbstractElement implements Element {
     }
 
     @Override
-    public final void draw(int mouseX, int mouseY) {
+    public final void draw(IScaledResolution scaledResolution) {
         if (!this.visible) return;
+        int mouseX = Mouse.getX() / scaledResolution.getScaleFactor(), mouseY = scaledResolution.getScaledHeight() - (Mouse.getY() / 2);
         onDraw(mouseX, mouseY);
     }
+
 
     @Override
     public boolean isVisible() {
@@ -49,19 +53,6 @@ public abstract class AbstractElement implements Element {
     @Override
     public void setY(int y) {
         this.y = y;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof AbstractElement)) return false;
-        final AbstractElement that = (AbstractElement) o;
-        return this.visible == that.visible && this.x == that.x && this.y == that.y;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(this.visible, this.x, this.y);
     }
 
 }

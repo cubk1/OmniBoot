@@ -1,8 +1,10 @@
 package org.union4dev.omni.addon.renderer.element;
 
+import org.union4dev.omni.elements.wrapper.IScaledResolution;
+
 public interface Element {
 
-    void draw(int mouseX, int mouseY);
+    void draw(IScaledResolution scaledResolution);
 
     void onDraw(int mouseX, int mouseY);
 

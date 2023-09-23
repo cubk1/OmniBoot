@@ -26,7 +26,6 @@ public class HUD extends Module {
 
     @EventTarget
     public void onRender(Render2DEvent event){
-        int mouseX = Mouse.getX() / event.getScaledResolution().getScaleFactor(), mouseY = event.getScaledResolution().getScaledHeight() - (Mouse.getY() / 2);
-        label.onDraw(mouseX,mouseY);
+        label.draw(event.getScaledResolution());
     }
 }
