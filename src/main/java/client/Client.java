@@ -2,8 +2,8 @@ package client;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.ChatComponentText;
-import org.union4dev.omni.elements.IClient;
-import org.union4dev.omni.elements.IRender;
+import org.union4dev.omni.elements.wrapper.IClient;
+import org.union4dev.omni.elements.wrapper.IRender;
 
 public class Client implements IClient {
     @Override

@@ -1,4 +1,4 @@
-package org.union4dev.omni.elements;
+package org.union4dev.omni.elements.wrapper;
 
 public interface IClient {
     void initiate();

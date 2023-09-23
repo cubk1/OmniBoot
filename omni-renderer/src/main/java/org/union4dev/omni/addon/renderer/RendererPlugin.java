@@ -1,8 +1,8 @@
 package org.union4dev.omni.addon.renderer;
 
 import org.union4dev.omni.components.ComponentManager;
-import org.union4dev.omni.elements.IClient;
 import org.union4dev.omni.elements.plugin.OmniPlugin;
+import org.union4dev.omni.elements.wrapper.IClient;
 
 public class RendererPlugin implements OmniPlugin {
     @Override

@@ -4,7 +4,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.util.ResourceLocation;
-import org.union4dev.omni.elements.IRender;
+import org.union4dev.omni.elements.wrapper.IRender;
 import org.union4dev.omni.elements.wrapper.IResourceLocation;
 
 public class RenderImpl implements IRender {

@@ -1,9 +1,13 @@
-package org.union4dev.omni.elements.data;
+package org.union4dev.omni.struct;
+
+import lombok.Getter;
 
 import java.util.Objects;
 
 public class Pair<A, B> {
+    @Getter
     private final A first;
+    @Getter
     private final B second;
 
     public Pair(A first, B second) {
@@ -13,14 +17,6 @@ public class Pair<A, B> {
 
     public static <T, K> Pair<T, K> of(T a, K b) {
         return new Pair<T, K>(a, b);
-    }
-
-    public A getFirst() {
-        return first;
-    }
-
-    public B getSecond() {
-        return second;
     }
 
     @Override

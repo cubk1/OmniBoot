@@ -18,13 +18,14 @@ import java.awt.*;
 public class HUD extends Module {
 
     private final LabelElement label = new LabelElement(mc.fontRendererObj, "Fuck", 2, 2, Color.WHITE, RenderFlag.STRING_SHADOW);
-    private final RectangleElement rect = new RectangleElement(90, 90, 100, 100, new Color(0, 0, 0, 100), RenderFlag.TRANSPARENT);
+    private final RectangleElement rect = new RectangleElement(0, 0, 100, 100, new Color(0, 0, 0, 100), RenderFlag.TRANSPARENT);
+
     public HUD() {
         super("HUD", Category.RENDER);
     }
 
     @EventTarget
-    public void onRender(Render2DEvent event){
+    public void onRender(Render2DEvent event) {
         label.draw(event.getScaledResolution());
         rect.draw(event.getScaledResolution());
     }

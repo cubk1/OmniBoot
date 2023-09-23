@@ -12,10 +12,10 @@ import org.union4dev.omni.components.command.CommandManager;
 import org.union4dev.omni.components.event.EventManager;
 import org.union4dev.omni.components.event.internal.InitiateEvent;
 import org.union4dev.omni.components.module.ModuleManager;
-import org.union4dev.omni.elements.IClient;
-import org.union4dev.omni.elements.IRender;
-import org.union4dev.omni.elements.data.Pair;
 import org.union4dev.omni.elements.plugin.OmniPlugin;
+import org.union4dev.omni.elements.wrapper.IClient;
+import org.union4dev.omni.elements.wrapper.IRender;
+import org.union4dev.omni.struct.Pair;
 
 import java.io.File;
 import java.io.IOException;

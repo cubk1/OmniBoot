@@ -1,6 +1,4 @@
-package org.union4dev.omni.elements;
-
-import org.union4dev.omni.elements.wrapper.IResourceLocation;
+package org.union4dev.omni.elements.wrapper;
 
 public interface IRender {
     void glBlendFunc(int sFactorRGB, int dFactorRGB, int sfactorAlpha, int dfactorAlpha);
