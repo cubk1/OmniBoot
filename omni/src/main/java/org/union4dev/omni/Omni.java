@@ -66,14 +66,18 @@ public class Omni {
             try {
                 Class<? extends OmniPlugin> plugin = (Class<? extends OmniPlugin>) Class.forName(pluginClass);
                 OmniPlugin instance = plugin.newInstance();
-                instance.load(client,componentManager);
-                log.info("Loaded plugin {}.",instance.getName());
-            }catch (ClassNotFoundException e){
-                log.warn("Plugin class {} is not present.",pluginClass);
+                instance.load(client, componentManager);
+                log.info("Loaded plugin {}.", instance.getName());
+            } catch (ClassNotFoundException e) {
+                log.warn("Plugin class {} is not present.", pluginClass);
             }
         }
 
         componentManager.initiate();
+
+        InitiateEvent event = new InitiateEvent();
+
+        getEventManager().call(event);
 
         List<URL> urls = new ArrayList<>();
         if (Omni.class.getClassLoader() instanceof URLClassLoader) {
@@ -83,47 +87,53 @@ public class Omni {
                 urls.add(new File(s).toURI().toURL());
             }
         }
+        for (Class<?> c : event.getClasses()) {
+            scan(c.getName());
+        }
         scanClasses(urls).forEach(s -> {
-            if(s.startsWith(client.getClass().getName().split("\\.")[0]) || s.startsWith("net.minecraft")) {
-                try {
-                    Class<?> clazz = Class.forName(s);
-                    if (clazz.isAnnotationPresent(RegisterTo.class)) {
-                        RegisterTo registerTo = clazz.getAnnotation(RegisterTo.class);
-                        componentManager.getByClass(registerTo.value()).addInstance(clazz);
-                    }
-                    if (clazz.isAnnotationPresent(Command.class)) {
-                        getCommandManager().addInstance(clazz);
-                    }
-                    for(Method method : clazz.getDeclaredMethods()){
-                        if(method.isAnnotationPresent(BindKeyPress.class)){
-                            if(!Modifier.isStatic(method.getModifiers()) || method.getParameters().length > 0){
-                                log.warn("Method {} is not a valid bind method",method.getName());
-                                continue;
-                            }
-                            BindKeyPress keyPress = method.getAnnotation(BindKeyPress.class);
-                            getBindManager().addValue(new Pair<>(keyPress.value(),method));
-                        }
-                    }
-                } catch (Throwable e) {
-                    log.warn(e.getMessage());
-                }
+            if (s.startsWith(client.getClass().getName().split("\\.")[0]) || s.startsWith("net.minecraft")) {
+                scan(s);
             }
         });
 
         client.initiate();
 
-        getEventManager().call(new InitiateEvent());
     }
 
-    public EventManager getEventManager(){
+    private void scan(String name) {
+        try {
+            Class<?> clazz = Class.forName(name);
+            if (clazz.isAnnotationPresent(RegisterTo.class)) {
+                RegisterTo registerTo = clazz.getAnnotation(RegisterTo.class);
+                componentManager.getByClass(registerTo.value()).addInstance(clazz);
+            }
+            if (clazz.isAnnotationPresent(Command.class)) {
+                getCommandManager().addInstance(clazz);
+            }
+            for (Method method : clazz.getDeclaredMethods()) {
+                if (method.isAnnotationPresent(BindKeyPress.class)) {
+                    if (!Modifier.isStatic(method.getModifiers()) || method.getParameters().length > 0) {
+                        log.warn("Method {} is not a valid bind method", method.getName());
+                        continue;
+                    }
+                    BindKeyPress keyPress = method.getAnnotation(BindKeyPress.class);
+                    getBindManager().addValue(new Pair<>(keyPress.value(), method));
+                }
+            }
+        } catch (Throwable e) {
+            log.warn(e.getMessage());
+        }
+    }
+
+    public EventManager getEventManager() {
         return componentManager.getByClass(EventManager.class);
     }
 
-    public ModuleManager getModuleManager(){
+    public ModuleManager getModuleManager() {
         return componentManager.getByClass(ModuleManager.class);
     }
 
-    public BindManager getBindManager(){
+    public BindManager getBindManager() {
         return componentManager.getByClass(BindManager.class);
     }
 
