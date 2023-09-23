@@ -4,12 +4,12 @@ import client.module.Module;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.ChatComponentText;
 import org.lwjgl.input.Keyboard;
+import org.union4dev.omni.annotations.event.EventTarget;
 import org.union4dev.omni.annotations.features.BindKeyPress;
 import org.union4dev.omni.annotations.features.RegisterTo;
-import org.union4dev.omni.annotations.event.EventTarget;
 import org.union4dev.omni.components.event.internal.TickUpdateEvent;
-import org.union4dev.omni.components.module.Category;
-import org.union4dev.omni.components.module.ModuleManager;
+import org.union4dev.omni.components.features.Category;
+import org.union4dev.omni.components.features.ModuleManager;
 
 @RegisterTo(ModuleManager.class)
 public class Sprint extends Module {

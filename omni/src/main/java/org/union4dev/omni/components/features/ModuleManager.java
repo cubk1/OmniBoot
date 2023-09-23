@@ -1,4 +1,4 @@
-package org.union4dev.omni.components.module;
+package org.union4dev.omni.components.features;
 
 import org.union4dev.omni.Omni;
 import org.union4dev.omni.annotations.event.EventPriority;

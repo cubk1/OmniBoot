@@ -1,11 +1,11 @@
 package org.union4dev.omni.components;
 
-import org.union4dev.omni.components.bind.BindManager;
-import org.union4dev.omni.components.command.CommandManager;
 import org.union4dev.omni.components.event.EventManager;
+import org.union4dev.omni.components.features.BindManager;
+import org.union4dev.omni.components.features.Category;
+import org.union4dev.omni.components.features.CommandManager;
+import org.union4dev.omni.components.features.ModuleManager;
 import org.union4dev.omni.components.management.ManagerComponent;
-import org.union4dev.omni.components.module.Category;
-import org.union4dev.omni.components.module.ModuleManager;
 
 public class ComponentManager extends ManagerComponent<Component> {
     @Override

@@ -1,4 +1,4 @@
-package org.union4dev.omni.components.bind;
+package org.union4dev.omni.components.features;
 
 import lombok.extern.log4j.Log4j2;
 import org.union4dev.omni.Omni;

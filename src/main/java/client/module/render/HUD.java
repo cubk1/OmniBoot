@@ -8,8 +8,8 @@ import org.union4dev.omni.addon.renderer.event.Render2DEvent;
 import org.union4dev.omni.annotations.event.EventTarget;
 import org.union4dev.omni.annotations.features.RegisterTo;
 import org.union4dev.omni.annotations.features.Startup;
-import org.union4dev.omni.components.module.Category;
-import org.union4dev.omni.components.module.ModuleManager;
+import org.union4dev.omni.components.features.Category;
+import org.union4dev.omni.components.features.ModuleManager;
 
 import java.awt.*;
 
