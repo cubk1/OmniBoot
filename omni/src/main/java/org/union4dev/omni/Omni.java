@@ -13,8 +13,9 @@ import org.union4dev.omni.components.event.EventManager;
 import org.union4dev.omni.components.event.internal.InitiateEvent;
 import org.union4dev.omni.components.module.ModuleManager;
 import org.union4dev.omni.elements.IClient;
-import org.union4dev.omni.elements.plugin.OmniPlugin;
+import org.union4dev.omni.elements.IRender;
 import org.union4dev.omni.elements.data.Pair;
+import org.union4dev.omni.elements.plugin.OmniPlugin;
 
 import java.io.File;
 import java.io.IOException;
@@ -38,6 +39,9 @@ public class Omni {
 
     @Getter
     private IClient client;
+
+    @Getter
+    private IRender render;
 
     @Getter
     private final Properties properties = new Properties();

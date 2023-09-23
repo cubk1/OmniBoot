@@ -1,14 +1,13 @@
 package net.minecraft.util;
 
 import org.apache.commons.lang3.Validate;
+import org.union4dev.omni.elements.wrapper.IResourceLocation;
 
-public class ResourceLocation
-{
+public class ResourceLocation implements IResourceLocation {
     protected final String resourceDomain;
     protected final String resourcePath;
 
-    protected ResourceLocation(int p_i45928_1_, String... resourceName)
-    {
+    protected ResourceLocation(int p_i45928_1_, String... resourceName) {
         this.resourceDomain = org.apache.commons.lang3.StringUtils.isEmpty(resourceName[0]) ? "minecraft" : resourceName[0].toLowerCase();
         this.resourcePath = resourceName[1];
         Validate.notNull(this.resourcePath);
