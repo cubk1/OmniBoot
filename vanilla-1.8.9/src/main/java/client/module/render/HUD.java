@@ -1,11 +1,13 @@
 package client.module.render;
 
 import client.module.Module;
+import client.module.movement.Sprint;
 import org.union4dev.omni.addon.renderer.element.RenderFlag;
 import org.union4dev.omni.addon.renderer.element.impl.LabelElement;
 import org.union4dev.omni.addon.renderer.element.impl.RectangleElement;
 import org.union4dev.omni.addon.renderer.event.Render2DEvent;
 import org.union4dev.omni.annotations.event.EventTarget;
+import org.union4dev.omni.annotations.event.ModuleDepend;
 import org.union4dev.omni.annotations.features.RegisterTo;
 import org.union4dev.omni.annotations.features.Startup;
 import org.union4dev.omni.components.features.Category;
@@ -25,6 +27,7 @@ public class HUD extends Module {
     }
 
     @EventTarget
+    @ModuleDepend(Sprint.class)
     public void onRender(Render2DEvent event) {
         label.draw(event.getScaledResolution());
         rect.draw(event.getScaledResolution());

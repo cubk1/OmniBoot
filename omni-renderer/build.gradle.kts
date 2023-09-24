@@ -19,7 +19,7 @@ repositories {
 
 
 dependencies {
-    implementation(project(":omni"))
+    implementation(project(":"))
     implementation("org.lwjgl:lwjgl:2.9.4-nightly")
     implementation("org.lwjgl:util:2.9.4-nightly")
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.1")

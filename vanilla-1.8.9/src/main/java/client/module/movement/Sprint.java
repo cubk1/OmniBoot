@@ -25,7 +25,7 @@ public class Sprint extends Module {
     }
 
     @BindKeyPress(Keyboard.KEY_F)
-    public static void testBind(){
-        Minecraft.getMinecraft().thePlayer.addChatMessage(new ChatComponentText("Fuck!"));
+    public static void 傻逼(){
+        Minecraft.getMinecraft().thePlayer.addChatMessage(new ChatComponentText("你妈大逼人人插!"));
     }
 }
