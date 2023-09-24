@@ -3,8 +3,6 @@ plugins {
 }
 
 group = "org.union4dev"
-version = "1.8.9"
-
 repositories {
     mavenCentral()
 }
