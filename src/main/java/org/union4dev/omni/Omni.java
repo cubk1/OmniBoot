@@ -8,6 +8,7 @@ import org.union4dev.omni.annotations.features.Command;
 import org.union4dev.omni.annotations.features.RegisterTo;
 import org.union4dev.omni.components.ComponentManager;
 import org.union4dev.omni.components.event.EventManager;
+import org.union4dev.omni.components.event.internal.ClassScanEvent;
 import org.union4dev.omni.components.event.internal.InitiateEvent;
 import org.union4dev.omni.components.features.BindManager;
 import org.union4dev.omni.components.features.CommandManager;
@@ -103,6 +104,7 @@ public class Omni {
     private void scan(String name) {
         try {
             Class<?> clazz = Class.forName(name);
+            getEventManager().call(new ClassScanEvent(clazz));
             if (clazz.isAnnotationPresent(RegisterTo.class)) {
                 RegisterTo registerTo = clazz.getAnnotation(RegisterTo.class);
                 componentManager.getByClass(registerTo.value()).addInstance(clazz);
