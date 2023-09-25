@@ -10,7 +10,7 @@ import org.union4dev.omni.components.management.ManagerComponent;
 public class ComponentManager extends ManagerComponent<Component> {
     @Override
     public void initiate() {
-        addInstance(EventManager.class, ModuleManager.class, Category.class, BindManager.class, CommandManager.class);
+
     }
 
     @Override

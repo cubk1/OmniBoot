@@ -11,6 +11,7 @@ import org.union4dev.omni.components.event.EventManager;
 import org.union4dev.omni.components.event.internal.ClassScanEvent;
 import org.union4dev.omni.components.event.internal.InitiateEvent;
 import org.union4dev.omni.components.features.BindManager;
+import org.union4dev.omni.components.features.Category;
 import org.union4dev.omni.components.features.CommandManager;
 import org.union4dev.omni.components.features.ModuleManager;
 import org.union4dev.omni.elements.plugin.OmniPlugin;
@@ -62,6 +63,8 @@ public class Omni {
         properties.load(Omni.class.getResourceAsStream("/omni.properties"));
 
         String[] pluginList = properties.getProperty("plugins").split(",");
+
+        componentManager.addInstance(EventManager.class, ModuleManager.class, Category.class, BindManager.class, CommandManager.class);
 
         for(String pluginClass : pluginList){
             try {
